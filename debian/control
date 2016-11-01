@@ -17,6 +17,7 @@ Depends: ${misc:Depends},
    dbconfig-common,
    default-mta | mail-transport-agent,
    default-mysql-client | virtual-mysql-client | postgresql-client,
+   dialog,
    libjs-jquery-cookie (>= 11-3),
    libjs-underscore (>= 1.7.0~),
    php,
@@ -58,4 +59,3 @@ Description: fully-featured content management framework
  community software into one easy-to-use package.
  .
  This package contains version 8 of Drupal.
-
