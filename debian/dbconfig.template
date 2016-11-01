@@ -36,7 +36,7 @@ $dbs['pgsql'] = array(
                       'prefix' => '_DBC_BASEPATH_'
 );
 
-$dbs['sqlite'] = array(
+$dbs['SQLite'] = array(
                       'driver' => '_DBC_DBTYPE_',
                       'database' => '_DBC_BASEPATH_/_DBC_DBNAME_',
 );
