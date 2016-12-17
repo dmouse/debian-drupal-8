@@ -1,0 +1,42 @@
+*.php           usr/share/drupal8
+*.json          usr/share/drupal8
+web.config      usr/share/drupal8
+core            usr/share/drupal8
+modules         usr/share/drupal8
+themes          usr/share/drupal8
+robots.txt      usr/share/drupal8
+profiles        usr/share/drupal8
+sites           etc/drupal/8/
+# 
+debian/vendor/autoload.php         usr/share/drupal8/vendor
+debian/vendor/composer             usr/share/drupal8/vendor
+debian/vendor/behat                usr/share/drupal8/vendor
+debian/vendor/bin                  usr/share/drupal8/vendor
+debian/vendor/easyrdf              usr/share/drupal8/vendor
+debian/vendor/egulias              usr/share/drupal8/vendor
+debian/vendor/fabpot               usr/share/drupal8/vendor
+debian/vendor/guzzlehttp           usr/share/drupal8/vendor
+debian/vendor/ircmaxell            usr/share/drupal8/vendor
+debian/vendor/jcalderonzumba       usr/share/drupal8/vendor
+debian/vendor/masterminds          usr/share/drupal8/vendor
+debian/vendor/mikey179             usr/share/drupal8/vendor
+debian/vendor/paragonie            usr/share/drupal8/vendor
+debian/vendor/phpdocumentor        usr/share/drupal8/vendor
+debian/vendor/phpspec              usr/share/drupal8/vendor
+debian/vendor/phpunit              usr/share/drupal8/vendor
+debian/vendor/psr                  usr/share/drupal8/vendor
+debian/vendor/sebastian            usr/share/drupal8/vendor
+debian/vendor/stack                usr/share/drupal8/vendor
+debian/vendor/symfony-cmf          usr/share/drupal8/vendor
+debian/vendor/wikimedia            usr/share/drupal8/vendor
+debian/vendor/zendframework        usr/share/drupal8/vendor
+debian/vendor/web.config           usr/share/drupal8/vendor
+debian/vendor/symfony/psr-http-message-bridge/ usr/share/drupal8/vendor/symfony
+debian/vendor/doctrine/common      usr/share/drupal8/vendor/doctrine/
+# 
+debian/etc/apache2.conf     etc/drupal/8
+debian/etc/settings.php     etc/drupal/8/sites/default
+debian/cron.sh              usr/share/drupal8/core/scripts
+debian/dbconfig.template    usr/share/drupal8/templates
+debian/files.htaccess       usr/share/doc/drupal8
+

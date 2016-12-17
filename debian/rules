@@ -1,0 +1,65 @@
+#!/usr/bin/make -f
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+#export DH_OPTIONS=-v
+
+PACKAGE = $(shell dh_listpackages)
+DESTDIR = $(CURDIR)/debian/$(PACKAGE)
+
+VENDOR = $(DESTDIR)/usr/share/drupal8/vendor
+COREVENDOR = $(DESTDIR)/usr/share/drupal8/core/assets/vendor
+
+%:
+	dh  $@
+
+override_dh_installdirs:
+	dh_installdirs -X.svn -XCVS
+
+override_dh_install:
+	# Ensure the list of third-party included libraries remains
+	# consistent with what we already checked
+	SHATMP=`mktemp --tmpdir SHA_CK.XXXXX` && \
+	    sha256sum core/core.libraries.yml > $$SHATMP && \
+	    diff -q debian/missing-sources/tracking.sha256 $$SHATMP && \
+	    rm $$SHATMP
+
+	dh_install -XCVS -X.svn -X.gitignore -X.gitattributes -X.gitmodules
+
+	# Fix permissions
+	#
+	# Images should not be executable
+	find $(DESTDIR)/usr/share/drupal8 \
+	  -name '*.png' -o -name '*.jpg' -exec chmod a-x \{\} +
+	# All actual scripts (*.sh, *.php) under core/scripts should
+	# be executable; no other files in core/ should be executable.
+	find $(DESTDIR)/usr/share/drupal8/core -type f -exec chmod a-x \{\} +
+	find $(DESTDIR)/usr/share/drupal8/core/scripts -type f -name '*.php' -exec chmod a+x \{\} +
+	find $(DESTDIR)/usr/share/drupal8/core/scripts -type f -name '*.sh' -exec chmod a+x \{\} +
+
+	# There are many unneeded extra license files shipped with
+	# Drupal, identical copies of the GPL (or, in two cases, an
+	# empty file, and in two further cases documented in
+	# debian/copyright, the MIT license). The "vendors" directory
+	# (shipped in the sources inside debian/) has also several
+	# copies of the MIT and BSD licenses. Getting rid of them
+	# keeps Lintian happy.
+	find $(DESTDIR)/usr/share/drupal8 -name LICENSE.txt -exec rm \{\} +
+	find $(VENDOR) -name LICENSE* -exec rm \{\} +
+	rm $(COREVENDOR)/ckeditor/LICENSE.md \
+		$(COREVENDOR)/classList/LICENSE.md \
+		$(DESTDIR)/usr/share/drupal8/core/misc/icons/license.md \
+		$(DESTDIR)/usr/share/drupal8/core/themes/stable/images/core/icons/license.md
+
+	# Replace those embedded javascript libraries we can with the
+	# packaged systemwide version. Also, provided in
+	# drupal8.links; binary package dependencies provided.
+	rm -rf $(COREVENDOR)/ckeditor \
+		$(COREVENDOR)/jquery.cookie \
+		$(COREVENDOR)/underscore
+
+	install -m640 .htaccess debian/drupal8/etc/drupal/8/htaccess
+
+
+override_dh_installdocs:
+	dh_installdocs -XCVS -X.svn
+
