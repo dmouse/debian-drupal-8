@@ -8,6 +8,10 @@ The core/core.libraries.yml file is monitored for changes by comparing
 its SHA256 to debian/missing-sources/tracking.sha256 as part of the
 package build process.
 
+Some extra Javascript minified libraries are included for the
+phpunit/php-code-coverage library shipped in debian/vendor. Ain't
+bundling fun? :-/
+
 Licensing details for all bundled libraries: Refer to
 debian/copyright; details on where each missing source was downloaded
 from will be listed on this file.
@@ -152,3 +156,38 @@ from will be listed on this file.
   Downloaded from:
 
   https://raw.githubusercontent.com/furf/jquery-ui-touch-punch/master/jquery.ui.touch-punch.js
+
+- debian/missing-sources/debian/vendor/phpunit/php-code-coverage/src/CodeCoverage/Report/HTML/Renderer/Template/js/respond.js
+
+  Downloaded from:
+
+    https://raw.githubusercontent.com/scottjehl/Respond/1.4.2/src/respond.js
+
+- debian/missing-sources/debian/vendor/phpunit/php-code-coverage/src/CodeCoverage/Report/HTML/Renderer/Template/js/d3.js
+
+  Downloaded from:
+
+    https://raw.githubusercontent.com/d3/d3/v3.5.5/d3.js
+
+- debian/missing-sources/debian/vendor/phpunit/php-code-coverage/src/CodeCoverage/Report/HTML/Renderer/Template/js/nv.d3.js
+
+  Downloaded from:
+
+    https://raw.githubusercontent.com/novus/nvd3/v1.8.1/build/nv.d3.js
+
+- debian/missing-sources/debian/vendor/phpunit/php-code-coverage/src/CodeCoverage/Report/HTML/Renderer/Template/js/html5shiv.js
+
+  Downloaded from:
+    https://raw.githubusercontent.com/aFarkas/html5shiv/3.7.3/dist/html5shiv.js
+
+- debian/missing-sources/debian/vendor/phpunit/php-code-coverage/src/CodeCoverage/Report/HTML/Renderer/Template/js/holder.js
+
+  Downloaded from:
+
+    https://raw.githubusercontent.com/imsky/holder/v2.7.0/holder.js
+
+- debian/missing-sources/debian/vendor/phpunit/php-code-coverage/src/CodeCoverage/Report/HTML/Renderer/Template/js/jquery.js
+
+  Downloaded from:
+
+    https://code.jquery.com/jquery-1.11.3.js

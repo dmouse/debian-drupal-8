@@ -1,0 +1,10 @@
+/etc/cron.d/drupal8
+/etc/drupal/8/apache2.conf
+/etc/drupal/8/htaccess
+/etc/drupal/8/sites/README.txt
+/etc/drupal/8/sites/default/default.services.yml
+/etc/drupal/8/sites/default/default.settings.php
+/etc/drupal/8/sites/default/settings.php
+/etc/drupal/8/sites/development.services.yml
+/etc/drupal/8/sites/example.settings.local.php
+/etc/drupal/8/sites/example.sites.php
